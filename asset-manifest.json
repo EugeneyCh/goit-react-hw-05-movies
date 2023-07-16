@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/EugeneyCh/goit-react-hw-05-movies/static/css/main.b5320759.css",
-    "main.js": "/EugeneyCh/goit-react-hw-05-movies/static/js/main.a9f4de93.js",
-    "index.html": "/EugeneyCh/goit-react-hw-05-movies/index.html",
-    "main.b5320759.css.map": "/EugeneyCh/goit-react-hw-05-movies/static/css/main.b5320759.css.map",
-    "main.a9f4de93.js.map": "/EugeneyCh/goit-react-hw-05-movies/static/js/main.a9f4de93.js.map"
+    "main.css": "./static/css/main.b5320759.css",
+    "main.js": "./static/js/main.239558ca.js",
+    "index.html": "./index.html",
+    "main.b5320759.css.map": "./static/css/main.b5320759.css.map",
+    "main.239558ca.js.map": "./static/js/main.239558ca.js.map"
   },
   "entrypoints": [
     "static/css/main.b5320759.css",
-    "static/js/main.a9f4de93.js"
+    "static/js/main.239558ca.js"
   ]
 }
