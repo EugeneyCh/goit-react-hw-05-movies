@@ -1,4 +1,7 @@
-export const App = () => {
+// import { Routes, Route } from 'react-router-dom';
+// import { lazy } from 'react';
+
+const App = () => {
   return (
     <div
       style={{
@@ -14,3 +17,4 @@ export const App = () => {
     </div>
   );
 };
+export default App;
