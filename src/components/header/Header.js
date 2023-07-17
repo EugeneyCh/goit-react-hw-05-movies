@@ -1,8 +1,5 @@
-const { Link } = require("react-router-dom");
-
+const { Link } = require('react-router-dom');
 
 function Header() {
-    return <div>
-        <Link 
-    </div>
+  return <div></div>;
 }

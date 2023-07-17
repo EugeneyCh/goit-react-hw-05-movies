@@ -5,7 +5,7 @@ import Loader from 'components/loader/Loader';
 
 function Home() {
   const [isLoading, setIsLoading] = useState(false);
-  const [listMovies, setListMovies] = useState([]);
+  const [listMovies, setListMovies] = useState([1, 2, 3, 4]);
 
   useEffect(() => {
     setIsLoading(true);
@@ -28,12 +28,13 @@ function Home() {
   return (
     <>
       <ul>
-        {listMovies.length > 0 &&
-          listMovies.map(({ id, title }) => (
+        {listMovies.map(({ id, title }) => {
+          return (
             <li key={`movie-item-${id}`}>
               <Link to={`/movies/${id}`}>{title}</Link>
             </li>
-          ))}
+          );
+        })}
       </ul>
     </>
   );
