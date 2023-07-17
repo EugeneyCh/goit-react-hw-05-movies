@@ -1,4 +1,4 @@
 function MovieDetails() {
-  return <div>MovieDetails</div>;
+  return <div>I am MovieDetails</div>;
 }
 export default MovieDetails;
