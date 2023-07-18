@@ -12,8 +12,15 @@ export const getMovies = async () => {
     },
   };
 
-  const { data } = await axios.request(options);
-  return data;
+  //   const { data } = await axios.request(options);
+  try {
+    const { data } = await axios.request(options);
+    return data.results;
+  } catch (error) {
+    console.error(error);
+  } finally {
+  }
+  //   return data.results;
 };
 
 //   try {

@@ -12,7 +12,7 @@ function Home() {
 
     async function loadMovies() {
       const loadedMovies = await getMovies();
-      setListMovies(loadedMovies.results);
+      setListMovies(loadedMovies);
       setIsLoading(false);
     }
 
