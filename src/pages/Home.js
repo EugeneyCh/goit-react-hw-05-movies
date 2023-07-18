@@ -5,14 +5,14 @@ import Loader from 'components/loader/Loader';
 
 function Home() {
   const [isLoading, setIsLoading] = useState(false);
-  const [listMovies, setListMovies] = useState([1, 2, 3, 4]);
+  const [listMovies, setListMovies] = useState([]);
 
   useEffect(() => {
     setIsLoading(true);
 
     async function loadMovies() {
       const loadedMovies = await getMovies();
-      setListMovies(loadedMovies);
+      setListMovies(loadedMovies.results);
       setIsLoading(false);
     }
 
@@ -27,16 +27,16 @@ function Home() {
 
   return (
     <>
-      <ul>
-        It is the render place
-        {/* {listMovies.map(({ id, title }) => {
+      <h1 style={{ margin: '25px 0' }}>Trending today</h1>
+      <div>
+        {listMovies.map(({ id, title }) => {
           return (
-            <li key={`movie-item-${id}`}>
-              <Link to={`/movies/${id}`}> It is render place</Link>
+            <li style={{ margin: '5px 0 0 10px' }} key={`${id}`}>
+              <Link to={`${id}`}>{title}</Link>
             </li>
           );
-        })} */}
-      </ul>
+        })}
+      </div>
     </>
   );
 }
