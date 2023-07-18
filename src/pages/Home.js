@@ -28,13 +28,14 @@ function Home() {
   return (
     <>
       <ul>
-        {listMovies.map(({ id, title }) => {
+        It is the render place
+        {/* {listMovies.map(({ id, title }) => {
           return (
             <li key={`movie-item-${id}`}>
-              <Link to={`/movies/${id}`}>{title}</Link>
+              <Link to={`/movies/${id}`}> It is render place</Link>
             </li>
           );
-        })}
+        })} */}
       </ul>
     </>
   );
