@@ -15,7 +15,6 @@ function Home() {
       setListMovies(loadedMovies);
       setIsLoading(false);
     }
-
     loadMovies();
   }, []);
 
@@ -27,12 +26,12 @@ function Home() {
 
   return (
     <>
-      <h1 style={{ margin: '25px 0' }}>Trending today</h1>
+      <h1 style={{ marginLeft: '25px' }}>Trending today</h1>
       <div>
         {listMovies.map(({ id, title }) => {
           return (
             <li style={{ margin: '5px 0 0 10px' }} key={`${id}`}>
-              <Link to={`${id}`}>{title}</Link>
+              <Link to={`/movies/${id}`}>{title}</Link>
             </li>
           );
         })}
