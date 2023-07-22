@@ -11,55 +11,71 @@ export const getMovies = async () => {
         'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzMzBmYzBkOWM5NmViYjdkNjUwZTAyNjMxZTE5NzMzYiIsInN1YiI6IjY0YjRkYTUxMGJiMDc2MDEyZDU4ZDI3MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.-_cIa2C4PtkjvaCyr-XytEbjzbZCXAq5Fcr0CytEZlY',
     },
   };
-
-  //   const { data } = await axios.request(options);
-  try {
-    const { data } = await axios.request(options);
-    return data.results;
-  } catch (error) {
-    console.error(error);
-  } finally {
-  }
-  //   return data.results;
+  const { data } = await axios.request(options);
+  return data.results;
 };
 
-//   try {
-//     const { data } = await axios.request(options).then(function (response) {
-//       return data.result;
-//     });
-//   } catch (error) {
-//     console.error(error);
-//   } finally {
-//   }
-// };
+export const getMovieDetails = async movieId => {
+  const options = {
+    method: 'GET',
+    url: 'https://api.themoviedb.org/3/movie/' + `${movieId}`,
+    params: { language: 'en-US' },
+    headers: {
+      accept: 'application/json',
+      Authorization:
+        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzMzBmYzBkOWM5NmViYjdkNjUwZTAyNjMxZTE5NzMzYiIsInN1YiI6IjY0YjRkYTUxMGJiMDc2MDEyZDU4ZDI3MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.-_cIa2C4PtkjvaCyr-XytEbjzbZCXAq5Fcr0CytEZlY',
+    },
+  };
+  const { data } = await axios.request(options);
+  //   console.log(data);
+  return data;
+};
 
-// import axios from 'axios';
+export const getSearchMovies = async movieName => {
+  const options = {
+    method: 'GET',
+    url: 'https://api.themoviedb.org/3/search/movie',
+    params: { query: `${movieName}` },
+    headers: {
+      accept: 'application/json',
+      Authorization:
+        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzMzBmYzBkOWM5NmViYjdkNjUwZTAyNjMxZTE5NzMzYiIsInN1YiI6IjY0YjRkYTUxMGJiMDc2MDEyZDU4ZDI3MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.-_cIa2C4PtkjvaCyr-XytEbjzbZCXAq5Fcr0CytEZlY',
+    },
+  };
+  const { data } = await axios.request(options);
+  //   console.log(data);
+  return data.results;
+};
+//https://api.themoviedb.org/3/movie/1015957/credits
 
-// const options = {
-//   method: 'GET',
-//   url: 'https://api.themoviedb.org/3/trending/movie/day',
-//   params: { language: 'en-US' },
-//   headers: {
-//     accept: 'application/json',
-//     Authorization:
-//       'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzMzBmYzBkOWM5NmViYjdkNjUwZTAyNjMxZTE5NzMzYiIsInN1YiI6IjY0YjRkYTUxMGJiMDc2MDEyZDU4ZDI3MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.-_cIa2C4PtkjvaCyr-XytEbjzbZCXAq5Fcr0CytEZlY',
-//   },
-// };
+export const getActorsCredit = async movieName => {
+  const options = {
+    method: 'GET',
+    url: 'https://api.themoviedb.org/3/movie/' + `${movieName}` + '/credits',
+    params: { language: 'en-US' },
+    headers: {
+      accept: 'application/json',
+      Authorization:
+        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzMzBmYzBkOWM5NmViYjdkNjUwZTAyNjMxZTE5NzMzYiIsInN1YiI6IjY0YjRkYTUxMGJiMDc2MDEyZDU4ZDI3MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.-_cIa2C4PtkjvaCyr-XytEbjzbZCXAq5Fcr0CytEZlY',
+    },
+  };
+  const { data } = await axios.request(options);
+  // console.log(data);
+  return data.cast;
+};
 
-// axios
-//   .request(options)
-//   .then(function (response) {
-//     console.log(response.data);
-//   })
-//   .catch(function (error) {
-//     console.error(error);
-//   });
+export const getReviews = async movieName => {
+  const options = {
+    method: 'GET',
+    url: 'https://api.themoviedb.org/3/movie/' + `${movieName}` + '/reviews',
+    headers: {
+      accept: 'application/json',
+      Authorization:
+        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzMzBmYzBkOWM5NmViYjdkNjUwZTAyNjMxZTE5NzMzYiIsInN1YiI6IjY0YjRkYTUxMGJiMDc2MDEyZDU4ZDI3MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.-_cIa2C4PtkjvaCyr-XytEbjzbZCXAq5Fcr0CytEZlY',
+    },
+  };
 
-// axios
-//   .request(options)
-//   .then(function (response) {
-//     console.log(response.data);
-//   })
-//   .catch(function (error) {
-//     console.error(error);
-//   });
+  const { data } = await axios.request(options);
+  // console.log('Reviews is ...', data);
+  return data.results;
+};

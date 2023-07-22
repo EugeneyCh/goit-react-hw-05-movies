@@ -6,7 +6,7 @@ import Movies from 'pages/Movies';
 import MovieDetails from 'pages/MovieDetails';
 import Cast from './cast/Cast';
 import Reviews from './reviews/Reviews';
-import NotFound from 'pages/NotFound';
+import NotFound from 'components/notFound/NotFound';
 
 function App() {
   return (
