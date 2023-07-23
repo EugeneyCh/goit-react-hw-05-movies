@@ -45,6 +45,7 @@ const Cast = () => {
 
       <div>
         <ul className={css.imageGallery}>
+          {/*  eslint-disable-next-line react-hooks/exhaustive-deps */}
           {loadedActors.map(({ id, character, name, profile_path }) => {
             if (profile_path) {
               return (
