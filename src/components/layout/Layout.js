@@ -1,6 +1,6 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import styled from 'styled-components';
-import css from './layout.module.css';
+import css from './Layout.module.css';
 
 const StyledLink = styled(NavLink)`
   color: #212121;
