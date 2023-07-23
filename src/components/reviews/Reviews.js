@@ -3,6 +3,7 @@ import { getReviews } from 'api/jsonApi';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Loader from 'components/loader/Loader';
+import css from './Reviews.module.css';
 
 const Reviews = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -43,7 +44,7 @@ const Reviews = () => {
   }
   return (
     <>
-      <ul>
+      <ul className={css.reviewsNotes}>
         {movieReviews.map(({ id, author, content }) => {
           return (
             <li style={{ margin: '5px 0 0 10px' }} key={`${id}`}>

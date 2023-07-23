@@ -45,7 +45,7 @@ const Cast = () => {
 
       <div>
         <ul className={css.imageGallery}>
-          {loadedActors.map(({ id, character, name, profile_path }) => {
+          {loadedActors.map(({ id, character, name, profile_path = null }) => {
             if (profile_path) {
               return (
                 <li key={`${id}`}>

@@ -1,0 +1,4 @@
+.reviewsNotes {
+  display: flex;
+  flex-direction: column;
+}
