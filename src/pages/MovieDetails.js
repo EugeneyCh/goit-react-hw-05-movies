@@ -13,6 +13,7 @@ function MovieDetails() {
   const [isLoading, setIsLoading] = useState(false);
   const [movie, setMovies] = useState();
   const [isError, setIsError] = useState(false);
+
   const backLinkLocationRef = useRef(location.state?.from ?? '/');
 
   const goBackHandler = () => navigate(backLinkLocationRef.current);
