@@ -18,7 +18,7 @@ export const getMovies = async () => {
 export const getMovieDetails = async movieId => {
   const options = {
     method: 'GET',
-    url: 'https://api.themoviedb.org/3/movie/' + `${movieId}`,
+    url: 'https://api.themoviedb.org/3/movie/' + movieId,
     params: { language: 'en-US' },
     headers: {
       accept: 'application/json',
@@ -35,7 +35,7 @@ export const getSearchMovies = async movieName => {
   const options = {
     method: 'GET',
     url: 'https://api.themoviedb.org/3/search/movie',
-    params: { query: `${movieName}` },
+    params: { query: movieName },
     headers: {
       accept: 'application/json',
       Authorization:
@@ -50,7 +50,7 @@ export const getSearchMovies = async movieName => {
 export const getActorsCredit = async movieName => {
   const options = {
     method: 'GET',
-    url: 'https://api.themoviedb.org/3/movie/' + `${movieName}` + '/credits',
+    url: 'https://api.themoviedb.org/3/movie/' + movieName + '/credits',
     params: { language: 'en-US' },
     headers: {
       accept: 'application/json',
@@ -66,7 +66,7 @@ export const getActorsCredit = async movieName => {
 export const getReviews = async movieName => {
   const options = {
     method: 'GET',
-    url: 'https://api.themoviedb.org/3/movie/' + `${movieName}` + '/reviews',
+    url: 'https://api.themoviedb.org/3/movie/' + movieName + '/reviews',
     headers: {
       accept: 'application/json',
       Authorization:
