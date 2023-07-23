@@ -7,22 +7,24 @@ const StyledLink = styled(NavLink)`
   &.active {
     color: orangered;
   }
-  ul {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-  }
-  li {
-    margin-right: 20px;
-  }
 `;
 
 const Layout = () => {
   return (
     <>
       <header>
-        <ul>
-          <li>
+        <ul
+          style={{
+            listStyle: 'none',
+            display: 'flex',
+            flexDirection: 'row',
+          }}
+        >
+          <li
+            style={{
+              marginRight: 20,
+            }}
+          >
             <StyledLink to="/">Home</StyledLink>
           </li>
           <li>
