@@ -45,7 +45,7 @@ const Cast = () => {
 
       <div>
         <ul className={css.imageGallery}>
-          {loadedActors.map(({ id, character, name, profile_path = null }) => {
+          {loadedActors.map(({ id, character, name, profile_path }) => {
             if (profile_path) {
               return (
                 <li key={`${id}`}>
@@ -59,6 +59,7 @@ const Cast = () => {
                 </li>
               );
             }
+            return null; // Додано повернення null, якщо у актора немає profile_path
           })}
         </ul>
       </div>
