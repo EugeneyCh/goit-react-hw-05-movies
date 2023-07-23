@@ -46,7 +46,6 @@ export const getSearchMovies = async movieName => {
   //   console.log(data);
   return data.results;
 };
-//https://api.themoviedb.org/3/movie/1015957/credits
 
 export const getActorsCredit = async movieName => {
   const options = {
@@ -76,6 +75,5 @@ export const getReviews = async movieName => {
   };
 
   const { data } = await axios.request(options);
-  // console.log('Reviews is ...', data);
   return data.results;
 };

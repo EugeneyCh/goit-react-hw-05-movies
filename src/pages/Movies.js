@@ -44,17 +44,6 @@ function Movies() {
     setSearchName(movieName);
   };
 
-  // if (!listMovies) {
-  //   return (
-  //     <div>
-  //       <Loader />
-  //     </div>
-  //   );
-  // }
-  // if (isLoading) {
-  //   return <Loader />;
-  // }
-
   if (isError) {
     return 'Error while loading movies...';
   }

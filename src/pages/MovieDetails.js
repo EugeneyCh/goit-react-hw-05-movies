@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate, useLocation, Link } from 'react-router-dom';
 import { getMovieDetails } from 'api/jsonApi';
 import Loader from 'components/loader/Loader';
 import { Outlet } from 'react-router-dom';
 import css from './MovieDetails.module.css';
+import PropTypes from 'prop-types';
 
 function MovieDetails() {
   const { movieId } = useParams();
@@ -12,8 +13,9 @@ function MovieDetails() {
   const [isLoading, setIsLoading] = useState(false);
   const [movie, setMovies] = useState();
   const [isError, setIsError] = useState(false);
+  const backLinkLocationRef = useRef(location.state?.from ?? '/');
 
-  const goBackHandler = () => navigate(location.state.from);
+  const goBackHandler = () => navigate(backLinkLocationRef.current);
 
   // console.log('Movies Id is ...', movieId);
 
@@ -25,7 +27,6 @@ function MovieDetails() {
         const loadedMovie = await getMovieDetails(movieId);
         setMovies(loadedMovie);
         setIsLoading(false);
-        console.log('Movie data is ...', loadedMovie);
       }
       loadMovies(movieId);
     } catch (error) {
@@ -35,14 +36,12 @@ function MovieDetails() {
       // setIsLoading(false);
     }
   }, []);
-  // console.log('Location is ...', location);
-  // if (isLoading) {
-  //   return <Loader />;
-  // }
+  if (isLoading) {
+    return <Loader />;
+  }
   if (isError) {
     return 'Error while loading movie information...';
   }
-  console.log('Data in movie ...', movie);
   if (!movie) {
     return (
       <div>
@@ -78,17 +77,14 @@ function MovieDetails() {
           </ul>
         </div>
       </div>
+      <h3>Additional information</h3>
       <ul>
         <li>
-          <Link to="cast" state={location}>
-            Cast
-          </Link>
+          <Link to="cast">Cast</Link>
         </li>
         <li>
           {' '}
-          <Link to="reviews" state={location}>
-            Reviews
-          </Link>
+          <Link to="reviews">Reviews</Link>
         </li>
       </ul>
       <Outlet />
@@ -96,8 +92,9 @@ function MovieDetails() {
   );
 }
 
-export default MovieDetails;
+MovieDetails.propTypes = {
+  state: PropTypes.shape.isRequired,
+  movieId: PropTypes.string.isRequired,
+};
 
-// {
-//   `${movieId}`;
-// }
+export default MovieDetails;

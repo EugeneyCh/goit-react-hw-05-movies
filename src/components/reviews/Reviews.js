@@ -1,15 +1,13 @@
 import { useEffect, useState } from 'react';
 import { getReviews } from 'api/jsonApi';
 import { useParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const Reviews = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [movieReviews, setMovieReviews] = useState([]);
   const [isError, setIsError] = useState(false);
-  // const [searchParams, setSearchParams] = useSearchParams();
   const { movieId } = useParams();
-
-  // const location = useLocation();
 
   useEffect(() => {
     setIsLoading(true);
@@ -47,4 +45,9 @@ const Reviews = () => {
     </>
   );
 };
+
+Reviews.propTypes = {
+  movieId: PropTypes.string.isRequired,
+};
+
 export default Reviews;

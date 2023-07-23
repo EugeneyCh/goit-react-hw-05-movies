@@ -1,16 +1,15 @@
 import { useEffect, useState } from 'react';
 import { getActorsCredit } from 'api/jsonApi';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import css from './Cast.module.css';
+import PropTypes from 'prop-types';
 
 const Cast = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [loadedActors, setLoadedActors] = useState([]);
   const [isError, setIsError] = useState(false);
-  // const [searchParams, setSearchParams] = useSearchParams();
-  const { movieId } = useParams();
 
-  // const location = useLocation();
+  const { movieId } = useParams();
 
   useEffect(() => {
     setIsLoading(true);
@@ -29,7 +28,6 @@ const Cast = () => {
       //   setIsLoading(false);
     }
   }, []);
-  console.log('About actors...', loadedActors);
   return (
     <>
       <h1 style={{ marginLeft: '25px' }}>Actors</h1>
@@ -40,7 +38,6 @@ const Cast = () => {
             if (profile_path) {
               return (
                 <li key={`${id}`}>
-                  {/* <h3> {author}</h3> */}
                   <img
                     src={`https://image.tmdb.org/t/p/w500/${profile_path}`}
                     alt={`${name}`}
@@ -54,17 +51,12 @@ const Cast = () => {
           })}
         </ul>
       </div>
-      {/* <div>
-        {loadedActors.map(({ id,character, name , profile_path}) => {
-          return (
-            <li key={id}>
-              <img src={`https://image.tmdb.org/t/p/w500/${profile_path}`} alt={`${name}`} className="">
-              Chapter: {`${character}`}
-            </li>
-          );
-        })}
-      </div> */}
     </>
   );
 };
+
+Cast.propTypes = {
+  movieId: PropTypes.string.isRequired,
+};
+
 export default Cast;
