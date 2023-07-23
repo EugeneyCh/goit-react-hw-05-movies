@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, Suspense } from 'react';
 import { useParams, useNavigate, useLocation, Link } from 'react-router-dom';
 import { getMovieDetails } from 'api/jsonApi';
 import Loader from 'components/loader/Loader';
@@ -35,6 +35,7 @@ function MovieDetails() {
     } finally {
       // setIsLoading(false);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   if (isLoading) {
     return <Loader />;
@@ -87,14 +88,16 @@ function MovieDetails() {
           <Link to="reviews">Reviews</Link>
         </li>
       </ul>
-      <Outlet />
+      <Suspense>
+        <Outlet />
+      </Suspense>
     </>
   );
 }
 
 MovieDetails.propTypes = {
-  state: PropTypes.shape.isRequired,
-  movieId: PropTypes.string.isRequired,
+  state: PropTypes.func,
+  movieId: PropTypes.string,
 };
 
 export default MovieDetails;

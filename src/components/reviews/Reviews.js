@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { getReviews } from 'api/jsonApi';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Loader from 'components/loader/Loader';
 
 const Reviews = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -26,7 +27,16 @@ const Reviews = () => {
       //   setIsLoading(false);
     }
   }, []);
-  console.log(movieReviews);
+  // console.log(movieReviews);
+
+  if (isError) {
+    return 'Error while loading reviews information...';
+  }
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
   if (movieReviews.length === 0) {
     return <p>We don't have any reviews for this movie </p>;
   }
@@ -47,7 +57,7 @@ const Reviews = () => {
 };
 
 Reviews.propTypes = {
-  movieId: PropTypes.string.isRequired,
+  movieId: PropTypes.string,
 };
 
 export default Reviews;

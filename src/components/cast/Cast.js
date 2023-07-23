@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getActorsCredit } from 'api/jsonApi';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import Loader from 'components/loader/Loader';
 import css from './Cast.module.css';
 import PropTypes from 'prop-types';
 
@@ -28,6 +29,15 @@ const Cast = () => {
       //   setIsLoading(false);
     }
   }, []);
+
+  if (isError) {
+    return 'Error while loading casting information...';
+  }
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <>
       <h1 style={{ marginLeft: '25px' }}>Actors</h1>
@@ -56,7 +66,7 @@ const Cast = () => {
 };
 
 Cast.propTypes = {
-  movieId: PropTypes.string.isRequired,
+  movieId: PropTypes.string,
 };
 
 export default Cast;

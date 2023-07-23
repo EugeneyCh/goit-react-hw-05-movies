@@ -37,6 +37,7 @@ function Movies() {
     } finally {
       setIsLoading(false);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchName]);
 
   const handleSubmit = e => {
@@ -47,7 +48,7 @@ function Movies() {
   if (isError) {
     return 'Error while loading movies...';
   }
-  console.log(listMovies);
+  // console.log(listMovies);
   return (
     <>
       <form onSubmit={handleSubmit}>
