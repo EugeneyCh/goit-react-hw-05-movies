@@ -27,7 +27,7 @@ export const getMovieDetails = async movieId => {
     },
   };
   const { data } = await axios.request(options);
-  //   console.log(data);
+  console.log(data);
   return data;
 };
 
