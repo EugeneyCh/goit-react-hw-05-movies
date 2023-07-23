@@ -89,7 +89,13 @@ function MovieDetails() {
           <Link to="reviews">Reviews</Link>
         </li>
       </ul>
-      <Suspense>
+      <Suspense
+        fallback={
+          <div>
+            <Loader />
+          </div>
+        }
+      >
         <Outlet />
       </Suspense>
     </>
