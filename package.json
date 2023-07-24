@@ -1,7 +1,7 @@
 {
   "name": "goit-react-hw-05-movies",
   "version": "0.1.0",
-  "private": false,
+  "private": true,
   "homepage": "https://github.com/EugeneyCh/goit-react-hw-05-movies",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.3",
